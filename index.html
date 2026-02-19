@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThinkPlus AI Tutor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <marquee><h1>ThinkPlus AI Dashboard</h1></marquee>
+    <nav>
+        <h3>Personalized Learning Progress & Recommendation System</h3>
+        <p>Welcome, <span id="user-display-name">User</span></p> 
+    </nav>
+</header>
+    
+    <div class="container">
+        <section id="dashboard">
+            <h2>Performance Stats</h2>
+            <div id="stats-grid" class="grid"></div>
+            <h3>Available Subjects</h3>
+            <button onclick="startQuiz('Python')">Python</button>
+            <button onclick="startQuiz('HTML')">HTML</button>
+            <div id="footer-recommendation">
+                <strong>AI Recommendation:</strong> <span id="rec-text">Loading...</span>
+                <button id="rec-btn">Start Recommended Quiz</button>
+            </div>
+        </section>
+
+        <section id="quiz-area" class="hidden">
+            <h2 id="quiz-title">Quiz</h2>
+            <p id="q-text"></p>
+            <div id="options"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

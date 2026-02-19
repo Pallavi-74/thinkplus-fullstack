@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThinkPlus - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <h2>ThinkPlus AI Login</h2>
+        <input type="text" id="username" placeholder="Username"><br><br>
+        <input type="email" id="email" placeholder="email"><br><br>
+        <button onclick="login()">Login</button>
+        <p id="login-error" style="color:red"></p>
+    </div>
+    <script>
+        async function login() {
+            const userVal = document.getElementById('username').value;
+            const emailVal = document.getElementById('email').value; 
+            const res = await fetch('http://127.0.0.1:5001/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: userVal, email: emailVal })
+            });
+
+        const data = await res.json();
+        if (res.ok) {
+            localStorage.setItem('thinkplus_user_id', data.user_id);
+            window.location.href = 'index.html'; 
+        } else {
+            alert(data.error);
+        }
+    }
+    </script>
+</body>
+</html>
